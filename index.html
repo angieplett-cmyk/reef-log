@@ -1,0 +1,27 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cut">
+<meta name="theme-color" content="#0b4f6c"><meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Reef Log">
+<link rel="manifest" href="./manifest.webmanifest"><link rel="apple-touch-icon" href="./icons/icon-192.png">
+<link rel="icon" href="./icons/icon.svg"><link rel="stylesheet" href="./styles.css"><title>Reef Log</title></head>
+<body><header><h1>🐠 Reef Log</h1><nav><button data-tab="add" class="on">Add</button><button data-tab="history">History</button><button data-tab="settings">Settings</button></nav></header>
+<main>
+<section id="add"><form id="form" novalidate>
+<div class="row"><label>Date<input type="date" id="date" required></label><label>Time<input type="time" id="time"></label></div>
+<p class="hint" id="editing" hidden>Editing a saved entry. <button type="button" id="cancelEdit" class="link">Cancel</button></p>
+<div id="fields" class="grid"></div>
+<label>Notes (optional)<textarea id="notes" rows="2"></textarea></label>
+<p id="msg" role="status" aria-live="polite"></p>
+<button class="primary" type="submit" id="saveBtn">Save entry</button>
+<p class="hint">Leave a test blank if you didn't run it — blank is not saved as 0.</p></form></section>
+<section id="history" hidden><div class="row"><button id="csv">Export CSV</button><button id="json">Backup JSON</button></div><ul id="list"></ul></section>
+<section id="settings" hidden>
+<h2>Alkalinity unit</h2><p class="hint">Choose the unit your test kit uses. Old entries keep the unit they were saved with.</p>
+<div class="row"><label class="radio"><input type="radio" name="alk" value="dKH">dKH</label><label class="radio"><input type="radio" name="alk" value="meq/L">meq/L</label></div>
+<p id="alkStatus" class="warn"></p>
+<p class="hint">Ammonia, nitrite, nitrate, calcium, magnesium and phosphate are in ppm (mg/L).</p>
+<h2>Backup &amp; restore</h2><p class="hint">Import merges by entry ID — nothing already here is removed.</p>
+<input type="file" id="importFile" accept=".json,application/json"><div id="preview"></div>
+<h2>Privacy</h2><p class="hint">Your logs are stored only in this browser on this device. There is no account and no sync. Clearing browser data or deleting the app can erase them — export a JSON backup now and then.</p>
+<h2>Add to Home Screen</h2><p class="hint"><b>iPhone (Safari):</b> tap Share → “Add to Home Screen”.<br><b>Android (Chrome):</b> tap ⋮ menu → “Add to Home screen” or “Install app”.</p>
+</section></main><script src="./app.js"></script></body></html>
